@@ -216,6 +216,6 @@ CloudWatch alarms are configured for:
 **Ganesh C**
 Cloud & DevOps Engineer
 - Domain: [ganeshc.shop](https://ganeshc.shop)
-- GitHub: [@ganeshc](https://github.com/ganeshc)
+- GitHub: (https://github.com/ganeshtamizarasi-hue)
 
 ---
