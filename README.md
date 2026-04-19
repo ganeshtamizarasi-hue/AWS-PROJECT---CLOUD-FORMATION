@@ -68,7 +68,7 @@ dr.ganeshc.shop → CloudFront → S3 (ganeshc-dr-backup)
 ## Repository Structure
 
 ```
-aws-wordpress-ha/
+AWS-PROJECT---CLOUD-FORMATION/
 │
 ├── cloudformation/
 │   └── vpc-security-groups.yaml     # VPC, Subnets, IGW, NAT, Route Tables, SGs
@@ -136,9 +136,6 @@ aws secretsmanager create-secret \
 ### 4. Launch Template → ASG
 
 Configure the Launch Template using the AMI `Amazon Linux 2023`, instance type `t3.micro`, and the bootstrap script at `scripts/user-data.sh`. Update the `EFS_ID` placeholder before use.
-
-See [docs/deployment-guide.md](docs/deployment-guide.md) for the full step-by-step walkthrough.
-
 ---
 
 ## Security Architecture
@@ -202,8 +199,6 @@ dr.ganeshc.shop
 
 RTO target: < 15 minutes | RPO target: < 1 hour (based on backup cron frequency)
 
-See [docs/disaster-recovery.md](docs/disaster-recovery.md) for the full runbook.
-
 ---
 
 ## Monitoring
@@ -214,9 +209,6 @@ CloudWatch alarms are configured for:
 - ALB unhealthy target count > 0
 - ALB HTTP 5xx error rate spike
 - RDS CPU and free storage
-
-See [monitoring/cloudwatch-alarms.md](monitoring/cloudwatch-alarms.md) for full configuration.
-
 ---
 
 ## Author
@@ -227,7 +219,3 @@ Cloud & DevOps Engineer
 - GitHub: [@ganeshc](https://github.com/ganeshc)
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
