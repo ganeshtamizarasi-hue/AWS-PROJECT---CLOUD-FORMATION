@@ -1,0 +1,37 @@
+name: Validate CloudFormation
+
+on:
+  pull_request:
+    paths:
+      - 'cloudformation/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'cloudformation/**'
+
+jobs:
+  cfn-lint:
+    name: CloudFormation Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install cfn-lint
+        run: pip install cfn-lint
+
+      - name: Lint CloudFormation templates
+        run: |
+          cfn-lint cloudformation/vpc-security-groups.yaml \
+            --include-checks W
+
+      - name: Report results
+        if: always()
+        run: echo "CloudFormation lint complete."
